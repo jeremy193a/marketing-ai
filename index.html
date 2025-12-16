@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Marketing Mentorship | Lộ Trình 6 Tháng</title>
+  <meta name="description" content="Lộ trình 6 tháng biến đổi từ Marketing Executor thành Strategic AI-Powered Professional">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hero Section - Homepage Only */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 0 var(--space-4xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    .hero-grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(12, 35, 64, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(12, 35, 64, 0.08) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 75% 45% at 50% 45%, black, transparent);
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(12, 35, 64, 0.1), transparent 70%);
+      filter: blur(50px);
+      animation: pulse-glow 5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-lg);
+      background: rgba(12, 35, 64, 0.06);
+      border: 1px solid rgba(12, 35, 64, 0.2);
+      border-radius: var(--radius-full);
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xl);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .hero-badge .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-cyan);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0, 217, 255, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(0, 217, 255, 0); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5.5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: var(--space-lg);
+      animation: fadeInUp 0.6s ease 0.1s forwards;
+      opacity: 0;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto var(--space-2xl);
+      line-height: 1.7;
+      animation: fadeInUp 0.6s ease 0.2s forwards;
+      opacity: 0;
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-4xl);
+      animation: fadeInUp 0.6s ease 0.3s forwards;
+      opacity: 0;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+      animation: fadeInUp 0.6s ease 0.4s forwards;
+      opacity: 0;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl);
+      text-align: center;
+      transition: all var(--transition-base);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 12px 24px rgba(12, 35, 64, 0.1);
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: var(--space-xs);
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .goals-section {
+      padding: var(--space-4xl) 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-cta .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🚀</span>
+        AI Marketing
+      </a>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link active">Trang Chủ</a>
+        <a href="curriculum.html" class="nav-link">Lộ Trình</a>
+        <a href="tools.html" class="nav-link">AI Tools</a>
+      </div>
+      <a href="curriculum.html" class="nav-cta">Xem Lộ Trình</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-grid-pattern"></div>
+        <div class="hero-glow"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse"></span>
+            Chương Trình Mentorship 2024
+          </div>
+          <h1 class="hero-title">
+            Marketing Mastery<br>
+            <span class="text-gradient">in AI Era</span>
+          </h1>
+          <p class="hero-subtitle">
+            Lộ trình 6 tháng biến đổi từ Marketing Executor thành Strategic AI-Powered Professional.
+            Nắm vững toàn bộ marketing ecosystem kết hợp sức mạnh AI.
+          </p>
+          <div class="hero-cta">
+            <a href="curriculum.html" class="btn btn-primary">
+              Khám Phá Lộ Trình
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="tools.html" class="btn btn-secondary">
+              Xem AI Tools
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-number">6</div>
+              <div class="stat-label">Tháng Học</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">18</div>
+              <div class="stat-label">Tuần Training</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">12</div>
+              <div class="stat-label">Sessions</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">30+</div>
+              <div class="stat-label">AI Tools</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="goals-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Mục Tiêu Chương Trình</span>
+          <h2 class="section-title">6 Trụ Cột Để Trở Thành <span class="text-gradient">Marketing Professional</span></h2>
+          <p class="section-subtitle">Xây dựng nền tảng vững chắc cho sự nghiệp marketing trong kỷ nguyên AI</p>
+        </div>
+
+        <div class="goals-grid">
+          <div class="goal-card">
+            <div class="goal-icon">🎯</div>
+            <h3 class="goal-title">Full-Stack Marketing Mastery</h3>
+            <p class="goal-desc">Nắm vững toàn bộ marketing ecosystem: Digital, Branding, Event, Product Marketing</p>
+            <div class="goal-points">
+              <div class="goal-point">Digital marketing (SEO, SEM, Social Media)</div>
+              <div class="goal-point">Brand building & positioning</div>
+              <div class="goal-point">Event & experiential marketing</div>
+              <div class="goal-point">Integrated campaign planning</div>
+            </div>
+          </div>
+
+          <div class="goal-card">
+            <div class="goal-icon">🤖</div>
+            <h3 class="goal-title">AI-Powered Execution</h3>
+            <p class="goal-desc">Ứng dụng AI vào mọi khâu công việc marketing để tăng năng suất 3-5x</p>
+            <div class="goal-points">
+              <div class="goal-point">Content creation với ChatGPT, Midjourney</div>
+              <div class="goal-point">Marketing automation (Zapier, Make.com)</div>
+              <div class="goal-point">AI analytics & insights</div>
+              <div class="goal-point">Prompt engineering mastery</div>
+            </div>
+          </div>
+
+          <div class="goal-card">
+            <div class="goal-icon">📊</div>
+            <h3 class="goal-title">Project Management Excellence</h3>
+            <p class="goal-desc">Quản lý dự án chuyên nghiệp, từ planning đến execution và reporting</p>
+            <div class="goal-points">
+              <div class="goal-point">Agile marketing methodology</div>
+              <div class="goal-point">SOPs & workflow systemization</div>
+              <div class="goal-point">Client communication framework</div>
+              <div class="goal-point">Team collaboration tools</div>
+            </div>
+          </div>
+
+          <div class="goal-card">
+            <div class="goal-icon">📈</div>
+            <h3 class="goal-title">Data-Driven Thinking</h3>
+            <p class="goal-desc">Tư duy product marketing: hiểu và optimize các chỉ số quan trọng</p>
+            <div class="goal-points">
+              <div class="goal-point">North Star Metrics</div>
+              <div class="goal-point">AARRR framework (Pirate Metrics)</div>
+              <div class="goal-point">Attribution modeling</div>
+              <div class="goal-point">Dashboard & reporting automation</div>
+            </div>
+          </div>
+
+          <div class="goal-card">
+            <div class="goal-icon">🚀</div>
+            <h3 class="goal-title">Real Project Application</h3>
+            <p class="goal-desc">Áp dụng kiến thức trực tiếp vào dự án thực tế để scale lên</p>
+            <div class="goal-points">
+              <div class="goal-point">Case studies from current projects</div>
+              <div class="goal-point">Iterative improvement cycles</div>
+              <div class="goal-point">Portfolio building</div>
+              <div class="goal-point">Client success stories</div>
+            </div>
+          </div>
+
+          <div class="goal-card">
+            <div class="goal-icon">💼</div>
+            <h3 class="goal-title">Business Fundamentals</h3>
+            <p class="goal-desc">Kiến thức business căn bản để vận hành dịch vụ marketing bền vững</p>
+            <div class="goal-points">
+              <div class="goal-point">Unit economics & pricing</div>
+              <div class="goal-point">Legal & contracts</div>
+              <div class="goal-point">Financial planning</div>
+              <div class="goal-point">Scaling strategies</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <span class="logo-icon">🚀</span>
+        AI Marketing Mentorship
+      </div>
+      <p class="footer-text">Biến đổi sự nghiệp marketing của bạn trong kỷ nguyên AI</p>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Trang chủ</a>
+        <a href="curriculum.html" class="footer-link">Lộ trình</a>
+        <a href="tools.html" class="footer-link">AI Tools</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
