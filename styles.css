@@ -136,6 +136,8 @@ ul, ol { list-style: none; }
   font-size: 1.125rem;
   color: var(--text-secondary);
   max-width: 600px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .section-header {
@@ -204,6 +206,7 @@ ul, ol { list-style: none; }
   background: transparent;
   padding: 0;
   border-radius: var(--radius-full);
+  z-index: 200;
 }
 
 .nav-link {
@@ -247,6 +250,7 @@ ul, ol { list-style: none; }
   gap: 5px;
   width: 24px;
   padding: 4px 0;
+  z-index: 210;
 }
 
 .nav-toggle span {
@@ -608,7 +612,7 @@ ul, ol { list-style: none; }
 }
 
 .week-card.expanded .week-content {
-  max-height: 500px;
+  max-height: 2000px; /* allow longer sections without clipping */
 }
 
 .week-details {
@@ -816,7 +820,7 @@ ul, ol { list-style: none; }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .container {
     padding: 0 var(--space-lg);
   }
@@ -867,7 +871,7 @@ ul, ol { list-style: none; }
   }
 
   .tools-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
   }
 
   .footer-links {
@@ -877,10 +881,6 @@ ul, ol { list-style: none; }
 }
 
 @media (max-width: 480px) {
-  .tools-grid {
-    grid-template-columns: 1fr;
-  }
-
   .tools-categories {
     justify-content: flex-start;
     overflow-x: auto;
