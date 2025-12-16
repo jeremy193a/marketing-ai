@@ -38,21 +38,38 @@ function initNavigation() {
 
   if (!toggle || !menu) return;
 
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
+  // Toggle menu on hamburger click
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = menu.classList.toggle('active');
+    toggle.classList.toggle('active', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
   });
 
   // Close on link click
   menu.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.remove('active');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  // Close on click outside
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      menu.classList.remove('active');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
   });
 
   // Close on escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       menu.classList.remove('active');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
     }
   });
 }
